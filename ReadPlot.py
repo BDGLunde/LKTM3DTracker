@@ -1,11 +1,4 @@
-###########################################
-#
-# Class defining a SpacePoint
-#
-# W.H. Kelley
-# 19-May-2012
-#
-###########################################
+
 
 #Function Accepts File Name and Event Number, Outputs Event Title and Data of called event
 def dataRead(file_name, eventNum):
@@ -65,12 +58,7 @@ def dataRead(file_name, eventNum):
     
     return bb, Volume, Row, Column, Bucket, ADC
 
-#######################################
-# outputs hex and cartesian coordinates of single data event
-#
-# W.H. Kelley
-# 19-May-2012
-#######################################
+
 def ReadHexAndCart(file_name, eventNum):
     [Title, Volume, Row, Column, Bucket, ADC] = dataRead(file_name, eventNum)
     M = int(Title[3])
@@ -83,16 +71,7 @@ def ReadHexAndCart(file_name, eventNum):
         y.append(point[1])
         z.append(point[2])
     return Title, Volume, Row, Column, Bucket, ADC, x, y , z
-#######################################
-# EDITED FROM ORIGINAL PURPOSE BY WADE
-# 
-# Niffte geometry methods to convert
-# voxel to space point in cm
-#
-# J.L. Klay
-# 14-May-2012
-#
-#######################################
+
 import math
 #import voxel as vox
 #import SpacePoint as sp
@@ -132,13 +111,6 @@ def MapHexToCart(volume, column, row, bucket):
     return x,y,z
 
 
-#######################################
-# EDITED FROM ORIGINAL PURPOSE BY WADE
-# 
-# Kathyrn Original Edit
-# Re-Edited by Wade
-# 19-May-2012
-#######################################
 def PlotStuff(Title, x,y,z,ADC):
     import numpy as np
     from mpl_toolkits.mplot3d import Axes3D
